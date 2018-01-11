@@ -21,13 +21,13 @@ export default class Article extends Component {
     render() {
         const {article} = this.props;
         const {isOpen} = this.state;
-        const {comments}=this.props;
+        const {comments} = this.props;
 
         return (
             <div>
                 <h3>{article.title}</h3>
                 <button onClick={this.toggleOpen}>{
-                    isOpen?"close":"open"
+                    isOpen ? "close" : "open"
                 }</button>
                 {this.getBody()}
             </div>
@@ -37,9 +37,9 @@ export default class Article extends Component {
     getBody() {
         if (!this.state.isOpen) return null;
         const {article} = this.props;
-        return([
+        return ([
             <section>{article.text}</section>,
-        <CommentsList comments={article.comments}/>
+            <CommentsList comments={article.comments}/>
         ])
     }
 
